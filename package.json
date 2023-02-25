@@ -6,7 +6,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "nodemon src/index.js",
-		"start": "node src/index.js"
+		"start": "node src/index.js",
+		"dump": "sudo su -c 'psql -d tweteroo_poo -f dump.sql' postgres"
 	},
 	"keywords": [],
 	"author": "",
@@ -15,6 +16,7 @@
 		"chalk": "^5.0.1",
 		"cors": "^2.8.5",
 		"express": "^4.18.1",
-		"nodemon": "^2.0.16"
+		"nodemon": "^2.0.16",
+		"pg": "^8.9.0"
 	}
 }

@@ -1,12 +1,11 @@
 import express from "express";
-import { Controller } from "../controllers/tweet-controller.js";
+import { tweetController } from "../controllers/tweet-controller.js";
 
 const tweetRoute = express.Router();
-const controller = new Controller();
 
 tweetRoute
-	.post("/tweets", controller.create)
-	.get("/tweets/:username", controller.findByUsername)
-	.get("/tweets", controller.list);
+	.post("/tweets", tweetController.create)
+	.get("/tweets/:username", tweetController.findByUsername)
+	.get("/tweets", tweetController.list);
 
 export { tweetRoute };

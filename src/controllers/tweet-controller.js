@@ -1,16 +1,17 @@
-import { tweets, usuarios } from "../database/database.js";
 import { Tweet } from "../models/tweet-model.js";
+import { userRepository } from "../repositories/user-repository.js";
+import { tweetRepository } from "../repositories/tweet-repository.js";
 
-export class Controller {
-	create(req, res) {
+class Controller {
+	async create(req, res) {
 		const { username } = req.body;
 
 		try {
-			const user = usuarios.find((user) => user.username === username);
+			const user = (await userRepository.findByUsername(username)).rows[0];
 			if (!user) return res.status(404).send("Usuário não existe!");
 
 			const tweet = new Tweet({ ...req.body, ...user });
-			tweets.push(tweet);
+			await tweetRepository.create({ ...tweet });
 
 			res.status(201).send("OK, seu tweet foi criado!");
 		} catch (error) {
@@ -18,31 +19,33 @@ export class Controller {
 		}
 	}
 
-	findByUsername(req, res) {
+	async findByUsername(req, res) {
 		const { username } = req.params;
 
-		const tweetsDoUsuario = tweets.filter(
-			(tweet) => tweet.username === username
-		);
-
-		res.status(200).send(tweetsDoUsuario);
+		try {
+			const tweetsDoUsuario = (await tweetRepository.listByUsername(username))
+				.rows;
+			res.status(200).send(tweetsDoUsuario);
+		} catch (error) {
+			return res.status(400).send("Um erro ocorreu!");
+		}
 	}
 
-	list(req, res) {
+	async list(req, res) {
 		const { page } = req.query;
 
 		if (page && page < 1) {
 			res.status(400).send("Informe uma página válida!");
 			return;
 		}
-		const limite = 10;
-		const start = (page - 1) * limite;
-		const end = page * limite;
 
-		if (tweets.length <= 10) {
-			return res.send([...tweets].reverse());
+		try {
+			const tweets = (await tweetRepository.list(page)).rows;
+			res.status(200).send(tweets);
+		} catch (error) {
+			return res.status(400).send("Um erro ocorreu!");
 		}
-
-		res.status(200).send([...tweets].reverse().slice(start, end));
 	}
 }
+
+export const tweetController = new Controller();
