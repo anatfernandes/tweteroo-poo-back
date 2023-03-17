@@ -8,11 +8,14 @@
     - [Listar tweets](#Listar-tweets)
     - [Listar tweets de um usuário](#Listar-tweets-de-um-usuário)
 - [Como rodar em desenvolvimento](#Como-rodar-em-desenvolvimento)
+- [Créditos](#Créditos)
 
 <br/>
 
 # Sobre
 Tweteroo Backend é a API responsável por registrar e validar os dados fornecido pelo frontend da aplicação.
+<br />
+**Nota:** esse projeto é uma Prática de POO.
 
 <br/>
 
@@ -114,3 +117,8 @@ URL base: `http://localhost:5001`
 >```
 
 7. Instale o [Frontend](https://github.com/AnaLTFernandes/tweteroo-poo-front) da aplicação ou divirta-se nas rotas :)
+
+<br/>
+
+# Créditos
+- Código base do projeto [tweteroo-back](https://github.com/T07-Driven/tweteroo-back) de [codethi](https://github.com/codethi)
