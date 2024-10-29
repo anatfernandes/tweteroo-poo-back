@@ -1,5 +1,7 @@
 # :bird: Tweteroo Backend
 
+![Badge Finalizado](https://img.shields.io/static/v1?label=STATUS&message=FINALIZADO&color=success&style=for-the-badge)
+
 # Índice
 - [Sobre](#Sobre)
 - [Rotas](#Rotas)
@@ -94,7 +96,7 @@ URL base: `http://localhost:5001`
 
 1. Clone esse repositório:
 >```bash
-> git clone https://github.com/AnaLTFernandes/tweteroo-poo-back.git
+> git clone https://github.com/anatfernandes/tweteroo-poo-back.git
 >```
 
 2. Instale as dependências:
@@ -104,7 +106,7 @@ URL base: `http://localhost:5001`
 
 3. Crie um banco de dados chamado "tweteroo_poo"
 
-4. Configure as variáveis da conexão no arquivo [database](https://github.com/AnaLTFernandes/tweteroo-poo-back/blob/main/src/database/database.js)
+4. Configure as variáveis da conexão no arquivo [database](https://github.com/anatfernandes/tweteroo-poo-back/blob/main/src/database/database.js)
 
 5. Rode o comando na raiz do projeto para criar as tabelas do banco de dados:
 >```bash
@@ -116,7 +118,7 @@ URL base: `http://localhost:5001`
 > npm run dev
 >```
 
-7. Instale o [Frontend](https://github.com/AnaLTFernandes/tweteroo-poo-front) da aplicação ou divirta-se nas rotas :)
+7. Instale o [Frontend](https://github.com/anatfernandes/tweteroo-poo-front) da aplicação ou divirta-se nas rotas :)
 
 <br/>
 
